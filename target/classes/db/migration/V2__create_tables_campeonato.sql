@@ -1,0 +1,5 @@
+CREATE TABLE campeonato (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(100) NOT NULL,
+  tipo_campeonato VARCHAR(10) NOT NULL
+);
