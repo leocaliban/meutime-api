@@ -54,4 +54,23 @@ public class Partida {
 	private Boolean tevePenaltis;
 	private Integer golsPenaltisClube;
 	private Integer golsPenaltisAdversario;
+
+	public void definirResultado() {
+		if (golsClube > golsAdversario) {
+			resultado = Resultado.VITORIA;
+		} else if (golsClube < golsAdversario) {
+			resultado = Resultado.DERROTA;
+		} else {
+			if (tevePenaltis && golsPenaltisClube != null && golsPenaltisAdversario != null) {
+				if (golsPenaltisClube > golsPenaltisAdversario) {
+					resultado = Resultado.VITORIA;
+				} else {
+					resultado = Resultado.DERROTA;
+				}
+			} else {
+				resultado = Resultado.EMPATE;
+			}
+		}
+
+	}
 }
