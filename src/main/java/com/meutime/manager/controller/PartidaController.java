@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.meutime.manager.dto.request.PartidaRequestDTO;
+import com.meutime.manager.dto.response.ConfrontoResponseDTO;
 import com.meutime.manager.dto.response.PartidaResponseDTO;
 import com.meutime.manager.entity.Partida;
 import com.meutime.manager.mappers.GeneralMapper;
@@ -33,6 +35,13 @@ public class PartidaController {
 	@GetMapping
 	public List<Partida> listar() {
 		return service.listar();
+	}
+
+	@GetMapping("/confrontos")
+	public ResponseEntity<ConfrontoResponseDTO> buscarConfrontos(@RequestParam Long clubeId,
+			@RequestParam Long adversarioId) {
+		ConfrontoResponseDTO dto = service.buscarConfrontoContra(clubeId, adversarioId);
+		return ResponseEntity.ok(dto);
 	}
 
 	@PostMapping

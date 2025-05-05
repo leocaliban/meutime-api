@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.meutime.manager.entity.Clube;
 import com.meutime.manager.repository.ClubeRepository;
+import com.meutime.manager.service.exceptions.ClubeNotFoundException;
 
 @Service
 public class ClubeService {
@@ -13,6 +14,10 @@ public class ClubeService {
 
 	public ClubeService(ClubeRepository repository) {
 		this.repository = repository;
+	}
+
+	public Clube getById(Long id) {
+		return repository.findById(id).orElseThrow(() -> new ClubeNotFoundException(id));
 	}
 
 	public List<Clube> listar() {
