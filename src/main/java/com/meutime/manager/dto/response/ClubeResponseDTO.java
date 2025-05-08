@@ -11,4 +11,6 @@ public class ClubeResponseDTO {
 
 	private String nome;
 
+	private byte[] emblema;
+
 }

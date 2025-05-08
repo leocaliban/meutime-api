@@ -14,4 +14,7 @@ public class CampeonatoResponseDTO {
 	private String nome;
 
 	private TipoCampeonato tipo;
+
+	private byte[] emblema;
+
 }

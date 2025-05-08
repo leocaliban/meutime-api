@@ -15,7 +15,6 @@ import com.meutime.manager.entity.Partida;
 import com.meutime.manager.entity.enums.Resultado;
 import com.meutime.manager.mappers.GeneralMapper;
 import com.meutime.manager.repository.CampeonatoRepository;
-import com.meutime.manager.repository.ClubeRepository;
 import com.meutime.manager.repository.PartidaRepository;
 import com.meutime.manager.service.exceptions.PartidaNotFoundException;
 

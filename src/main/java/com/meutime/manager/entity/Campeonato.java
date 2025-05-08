@@ -9,6 +9,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,5 +33,9 @@ public class Campeonato {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_campeonato")
 	private TipoCampeonato tipo;
+
+	@Lob
+	@Column(name = "emblema", columnDefinition = "LONGBLOB")
+	private byte[] emblema;
 
 }
