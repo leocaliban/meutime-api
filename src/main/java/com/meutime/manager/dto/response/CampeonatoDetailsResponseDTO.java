@@ -7,12 +7,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CampeonatoResponseDTO {
+public class CampeonatoDetailsResponseDTO {
 
 	private Long id;
 
 	private String nome;
 
 	private TipoCampeonato tipo;
+
+	private byte[] emblema;
 
 }

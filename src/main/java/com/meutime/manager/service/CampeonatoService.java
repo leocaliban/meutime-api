@@ -20,7 +20,7 @@ public class CampeonatoService {
 		this.repository = repository;
 	}
 
-	public List<Campeonato> listar() {
+	public List<Campeonato> getAll() {
 		return repository.findAll();
 	}
 
