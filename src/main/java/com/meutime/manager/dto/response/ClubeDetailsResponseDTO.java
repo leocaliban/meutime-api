@@ -5,10 +5,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ClubeResponseDTO {
+public class ClubeDetailsResponseDTO {
 
 	private Long id;
 
 	private String nome;
+
+	private byte[] emblema;
 
 }

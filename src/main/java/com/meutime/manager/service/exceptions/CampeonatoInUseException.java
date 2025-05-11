@@ -9,7 +9,7 @@ public class CampeonatoInUseException extends ObjectInUseException {
 	}
 
 	public CampeonatoInUseException(String name, Long id) {
-		this(String.format("O Campeonato %s de código %d não pode ser removido, pois está em uso.", name, id));
+		this(String.format("O Campeonato %s de código %d não pode ser removido, pois já está vinculado a uma Partida.", name, id));
 	}
 
 }
