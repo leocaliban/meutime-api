@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import com.meutime.manager.entity.Partida;
 import com.meutime.manager.mappers.GeneralMapper;
 import com.meutime.manager.service.PartidaService;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/partidas")
 public class PartidaController {
@@ -33,8 +35,9 @@ public class PartidaController {
 	}
 
 	@GetMapping
-	public List<Partida> listar() {
-		return service.listar();
+	public ResponseEntity<List<PartidaResponseDTO>> getAll() {
+		List<Partida> partidas = service.getAll();
+		return ResponseEntity.status(HttpStatus.OK).body(mapper.toResponseDTOList(partidas, PartidaResponseDTO.class));
 	}
 
 	@GetMapping("/confrontos")

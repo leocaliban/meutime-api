@@ -37,7 +37,7 @@ public class PartidaService {
 		this.clubeMapper = clubeMapper;
 	}
 
-	public List<Partida> listar() {
+	public List<Partida> getAll() {
 		return repository.findAll();
 	}
 

@@ -1,6 +1,5 @@
 package com.meutime.manager.controller;
 
-import java.util.Base64;
 import java.util.List;
 
 import org.springframework.http.HttpHeaders;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -67,22 +65,6 @@ public class ClubeController {
 		}
 		return ResponseEntity.ok().header("Content-Type", "image/png")
 				.header(HttpHeaders.CACHE_CONTROL, "max-age=86400").body(object.getEmblema());
-	}
-
-	@PostMapping
-	public ResponseEntity<ClubeResponseDTO> salvar(@RequestBody ClubeRequestDTO request) {
-
-		Clube clube = new Clube();
-		clube.setNome(request.getNome());
-
-		if (request.getEmblema() != null && !request.getEmblema().isEmpty()) {
-			byte[] emblemaBytes = Base64.getDecoder().decode(request.getEmblema());
-			clube.setEmblema(emblemaBytes);
-		}
-
-		Clube created = service.salvar(clube);
-
-		return ResponseEntity.status(HttpStatus.CREATED).body(mapper.toResponseDTO(created, ClubeResponseDTO.class));
 	}
 
 	@PostMapping(consumes = "multipart/form-data")
